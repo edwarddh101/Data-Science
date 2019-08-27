@@ -442,23 +442,23 @@ random variable with mean 0 and standard deviation 1.
 
 Below are `scikit-learn`'s documentations on how to preprocess and featurize.
 
-#####Standardization
+##### Standardization
 * Standardization of datasets is a common requirement for many machine learning estimators implemented in the scikit: they might behave badly if the individual feature do not more or less look like standard normally distributed data: Gaussian with zero mean and unit variance.
 * In practice we often ignore the shape of the distribution and just transform the data to center it by removing the mean value of each feature, then scale it by dividing non-constant features by their standard deviation.
 * For instance, many elements used in the objective function of a learning algorithm (such as the RBF kernel of SVM or the L1 and L2 regularizers of linear models) assume that all features are centered around zero and have variance in the same order. If a feature has a variance that is orders of magnitude larger that others, it might dominate the objective function and make the estimator unable to learn from other features correctly as expected.
 
-#####Scaling
+##### Scaling
 * An alternative standardization is scaling features to lie between a given minimum and maximum value, often between zero and one. This can be achieved using `MinMaxScaler`.
 * The motivation to use this scaling include robustness to very small standard deviations of features and preserving zero entries in sparse data.
 * *Note*: In order for the same scaling and shifting operations to be consistent with test data, the same instance of the transformer must be applied. 
 
-#####Normalizing
+##### Normalizing
 * Normalization is the process of scaling individual samples to have unit norm. This process can be useful if you plan to use a quadratic form such as the dot-product or any other kernel to quantify the similarity of any pair of samples.
 * This assumption is the base of the Vector Space Model often used in text classification and clustering contexts.
 * The function normalize provides a quick and easy way to perform this operation on a single array-like dataset, either using the L1 or L2 norms.
 * Normalize and Normalizer accept both dense array-like and sparse matrices from `scipy.sparse` as input.
 
-#####Binarizing
+##### Binarizing
 * Feature binarization is the process of thresholding numerical features to get boolean values.
 * It is also common among the text processing community to use binary feature values (probably to simplify the probabilistic reasoning) even if normalized counts (a.k.a. term frequencies) or TF-IDF valued features often perform slightly better in practice.
 * Binarize and Binarizer accept both dense array-like and sparse matrices from `scipy.sparse` as input.
